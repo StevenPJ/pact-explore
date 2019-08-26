@@ -45,6 +45,17 @@
       <version>${pact.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>au.com.dius</groupId>
+      <artifactId>pact-jvm-consumer_2.12</artifactId>
+      <version>${pact.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>au.com.dius</groupId>
+      <artifactId>pact-jvm-provider_2.12</artifactId>
+      <version>${pact.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>

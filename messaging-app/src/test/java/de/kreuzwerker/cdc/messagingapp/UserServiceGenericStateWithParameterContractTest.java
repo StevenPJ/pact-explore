@@ -1,7 +1,5 @@
 package de.kreuzwerker.cdc.messagingapp;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
@@ -9,10 +7,6 @@ import au.com.dius.pact.consumer.dsl.DslPart;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import io.pactfoundation.consumer.dsl.LambdaDsl;
-import java.sql.Date;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Collections;
 import org.assertj.core.groups.Tuple;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -23,6 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Collections;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
