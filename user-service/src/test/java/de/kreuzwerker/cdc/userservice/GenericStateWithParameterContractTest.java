@@ -48,6 +48,24 @@ public class GenericStateWithParameterContractTest {
         }
     }
 
+    @State("User 1 exists")
+    public void user1Exists() {
+        when(userService.findUser(any())).thenReturn(User.builder()
+            .id("1")
+            .legacyId(UUID.randomUUID().toString())
+            .name("Beth")
+            .role(UserRole.ADMIN)
+            .lastLogin(new Date())
+            .friend(Friend.builder().id("2").name("Ronald Smith").build())
+            .friend(Friend.builder().id("3").name("Matt Spencer").build())
+            .build());
+    }
+
+    @State("User 2 does not exist")
+    public void user2DoesNotExist() {
+        when(userService.findUser(any())).thenThrow(NotFoundException.class);
+    }
+
 
 }
 
