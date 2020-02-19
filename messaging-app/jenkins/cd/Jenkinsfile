@@ -15,6 +15,11 @@ pipeline {
         }
       }
     }
+    stage('Tag Pact') {
+      steps {
+        sh "./pact-broker create-version-tag -a messaging-app -b http://pact_broker -e ${GIT_COMMIT} -t prod"
+      }
+    }
     stage('Publish Pacts') {
       steps {
         dir('messaging-app') {
@@ -39,10 +44,6 @@ pipeline {
         echo 'Deploying to prod now...'
       }
     }
-    stage('Tag Pact') {
-      steps {
-        sh "./pact-broker create-version-tag -a messaging-app -b http://pact_broker -e ${GIT_COMMIT} -t prod"
-      }
-    }
+
   }
 }
